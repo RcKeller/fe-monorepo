@@ -33,7 +33,7 @@ jobs:
       run: yarn test --ci --coverage --maxWorkers=2
 
     - name: Cypress Integration
-      uses: cypress-io/github-action@2.11.0
+      uses: cypress-io/github-action@2.11.6
       id: cypress-tests
       with:
         build: yarn run build:app
