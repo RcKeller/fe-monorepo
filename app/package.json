@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "Ryan Keller <rykeller.tech@gmail.com> (https://github.com/RcKeller)",
   "private": true,
   "scripts": {
     "start:app": "parcel src/index.html --port 3000",

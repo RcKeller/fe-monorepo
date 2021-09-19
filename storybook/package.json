@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
+  "author": "Ryan Keller <rykeller.tech@gmail.com> (https://github.com/RcKeller)",
   "scripts": {
     "start:storybook": "start-storybook -p 6006 --quiet",
     "build:storybook": "build-storybook -o ./dist --quiet"

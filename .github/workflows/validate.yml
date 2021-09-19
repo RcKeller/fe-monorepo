@@ -1,0 +1,47 @@
+# Needs future enhancement - just a draft
+name: CI
+on: [push]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - name: Setup NodeJS
+      uses: actions/setup-node@v1.4.4
+      with:
+        node-version: 14
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Cache Dependencies
+      uses: actions/cache@main
+      id: cache-build
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+    - name: Install Dependencies
+      run: yarn install --ignore-scripts
+
+    - name: Build Packages
+      run: yarn run build
+
+    - name: Size Check
+      run: yarn run size
+
+    - name: Unit Test
+      run: yarn test --ci --coverage --maxWorkers=2
+
+    - name: Cypress Integration
+      uses: cypress-io/github-action@2.11.0
+      id: cypress-tests
+      with:
+        build: yarn run build:app
+        start: yarn run start:app
+        wait-on: "http://localhost:3000"
+
+    - name: Build Storybook
+      run: yarn run build:storybook
+
+    - name: Build Example App
+      run: yarn run build:app
