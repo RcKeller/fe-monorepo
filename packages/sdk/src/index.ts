@@ -1,4 +1,4 @@
-export * from './utils/foo/someFunction';
+export * from './utils/someFunction';
 
 import { ICustomWindow } from './types/window';
 

@@ -12,11 +12,27 @@
   "publishConfig": {
     "access": "public"
   },
+  "size-limit": [
+    {
+      "name": "example-script: size for UMD production bundle",
+      "path": "dist/example-script.umd.production.min.js",
+      "running": false,
+      "limit": "20 kB"
+    },
+    {
+      "name": "example-script: runtime for UMD production bundle",
+      "path": "dist/example-script.umd.production.min.js",
+      "running": true,
+      "limit": "1 S"
+    }
+  ],
   "scripts": {
     "start": "tsdx watch --format umd --verbose --noClean",
     "build": "tsdx build  --format umd ",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint src",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
     "prepublishOnly": "yarn run build && yarn run size",
     "pre-push": "yarn run prepublishOnly"
   },

@@ -25,6 +25,28 @@
     "pre-commit": "tsdx test --onlyChanged",
     "pre-push": "yarn run prepublishOnly"
   },
+  "size-limit": [
+    {
+      "name": "example-react-lib: CommonJS bundle",
+      "path": "dist/example-react-lib.cjs.production.min.js",
+      "running": false,
+      "limit": "20 kB"
+    },
+    {
+      "name": "example-react-lib: import size useClientEffect",
+      "path": "dist/example-react-lib.esm.js",
+      "running": false,
+      "import": "{ useClientEffect }",
+      "limit": "10 kB"
+    },
+    {
+      "name": "example-react-lib: runtime for useClientEffect",
+      "path": "dist/example-react-lib.esm.js",
+      "running": true,
+      "import": "{ useClientEffect }",
+      "limit": "500 ms"
+    }
+  ],
   "dependencies": {
     "@rckeller/example-sdk": "*"
   }

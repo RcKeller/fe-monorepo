@@ -14,6 +14,28 @@
   "publishConfig": {
     "access": "public"
   },
+  "size-limit": [
+    {
+      "name": "example-sdk: CommonJS bundle",
+      "path": "dist/example-sdk.cjs.production.min.js",
+      "running": false,
+      "limit": "20 kB"
+    },
+    {
+      "name": "example-sdk: import size for someFunction",
+      "path": "dist/example-sdk.esm.js",
+      "running": false,
+      "import": "{ someFunction }",
+      "limit": "10 kB"
+    },
+    {
+      "name": "example-sdk: runtime for someFunction",
+      "path": "dist/example-sdk.esm.js",
+      "running": true,
+      "import": "{ someFunction }",
+      "limit": "500 ms"
+    }
+  ],
   "scripts": {
     "start": "tsdx watch --verbose --noClean",
     "build": "tsdx build",
