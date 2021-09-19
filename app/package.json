@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start:app": "parcel src/index.html --port 3000",
-    "build:app": "parcel build src/index.html --port 3000"
+    "build:app": "parcel build src/index.html"
   },
   "alias": {
     "@rckeller/example-react-lib": "../packages/react",
@@ -15,13 +15,13 @@
     "@rckeller/example-sdk": "../packages/sdk"
   },
   "dependencies": {
+    "parcel": "1.12.3",
     "react-app-polyfill": "^2.0.0",
     "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.8.4",
-    "parcel": "^1.12.3",
     "typescript": "^3.4.5"
   }
 }
