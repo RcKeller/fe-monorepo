@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    target-branch: "development"
+    labels:
+      - "dependencies"
+    schedule:
+      interval: "weekly"
+      time: "05:00"
+      timezone: "US/Pacific"
+    open-pull-requests-limit: 1
+    ignore:
+      - dependency-name: "@rckeller/*"

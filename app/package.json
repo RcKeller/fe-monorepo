@@ -3,20 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "private": true,
   "scripts": {
-    "start:app": "parcel index.html",
-    "build:app": "parcel build index.html"
-  },
-  "dependencies": {
-    "react-app-polyfill": "^1.0.0"
+    "start:app": "parcel src/index.html --port 3000",
+    "build:app": "parcel build src/index.html --port 3000"
   },
   "alias": {
     "@rckeller/example-react-lib": "../packages/react",
     "@rckeller/example-script": "../packages/script",
-    "@rckeller/example-sdk": "../packages/sdk",
-    "react": "../node_modules/react",
-    "react-dom": "../node_modules/react-dom/profiling",
-    "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
+    "@rckeller/example-sdk": "../packages/sdk"
+  },
+  "dependencies": {
+    "react-app-polyfill": "^2.0.0",
+    "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.11",

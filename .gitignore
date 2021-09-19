@@ -1,17 +1,22 @@
-*.log
-.DS_Store
-node_modules
+**/.log
+**/.DS_Store
+**/node_modules
 dist
+.idea
+**/.env
 
-node_modules
-package-lock.json
-yarn.lock
+**/package-lock.json
 !/yarn.lock
-
-.yalc
-yalc.lock
+**/yarn-error.log
 
 # app files
 **/node_modules
 **/.cache
 **/dist
+**/storybook-static
+
+# testing
+coverage
+cypress/report
+cypress/screenshots
+cypress/video

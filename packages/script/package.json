@@ -21,7 +21,6 @@
     "pre-push": "yarn run prepublishOnly"
   },
   "dependencies": {
-    "@rckeller/example-sdk": "*",
-    "tslib": "^2.0.0"
+    "@rckeller/example-sdk": "*"
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "@rckeller/example-sdk",
   "version": "0.0.1",
+  "license": "MIT",
   "description": "Software Development Kit",
   "author": "Ryan Keller <rykeller.tech@gmail.com> (https://github.com/RcKeller)",
   "main": "dist/index.js",
@@ -24,7 +25,5 @@
     "pre-commit": "tsdx test --onlyChanged",
     "pre-push": "yarn run prepublishOnly"
   },
-  "dependencies": {
-    "tslib": "^2.0.0"
-  }
+  "dependencies": {}
 }

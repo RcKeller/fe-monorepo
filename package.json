@@ -1,11 +1,13 @@
 {
   "name": "@rckeller/fe-monorepo",
+  "version": "1.0.0",
   "private": true,
   "license": "MIT",
-  "version": "1.0.0",
   "author": "Ryan Keller <rykeller.tech@gmail.com> (https://github.com/RcKeller)",
   "engines": {
-    "node": "^=14"
+    "npm": "please-use-yarn",
+    "yarn": "^1.22.x",
+    "node": ">=14"
   },
   "workspaces": [
     "packages/*",
@@ -14,13 +16,20 @@
   ],
   "scripts": {
     "lerna": "lerna",
-    "start": "lerna run start --stream --parallel",
-    "test": "lerna run test --",
-    "lint": "lerna run lint -- --fix",
-    "build": "lerna run build",
-    "start:app": "yarn run build && yarn --cwd example && yarn --cwd example start",
+    "start": "lerna run --stream --parallel start",
+    "start:app": "lerna run --stream start:app",
+    "start:storybook": "lerna run --stream start:storybook",
+    "test": "lerna run --stream --parallel --no-bail test --",
+    "lint": "lerna run --stream --no-bail lint --",
+    "lint:fix": "lerna run --stream --no-bail lint -- --fix",
+    "build": "lerna run --stream build",
+    "build:app": "lerna run --stream build:app",
+    "build:storybook": "lerna run --stream build:storybook",
+    "size": "lerna run --stream --parallel --no-prefix size",
+    "analyze": "echo \"Error: run the bundle analyzer within the project directory in question\" && exit 1",
     "cypress": "cypress run",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:ci": "start-server-and-test start:app http://localhost:3000 cypress"
   },
   "husky": {
     "hooks": {
@@ -29,17 +38,28 @@
     }
   },
   "dependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.13.8",
+    "@size-limit/preset-big-lib": "^5.0.3",
     "cypress": "^8.4.1",
     "lerna": "4",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
     "size-limit": "^5.0.3",
     "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
     "typescript": "^4.4.3"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.173"
+    "@types/lodash": "^4.14.173",
+    "@types/react": "^17.0.21",
+    "@types/react-dom": "^17.0.9",
+    "husky": "^4.3.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
   }
 }
