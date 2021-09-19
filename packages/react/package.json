@@ -1,0 +1,31 @@
+{
+  "name": "@rckeller/example-react-lib",
+  "version": "0.0.1",
+  "description": "Example react component library",
+  "author": "Ryan Keller <rykeller.tech@gmail.com> (https://github.com/RcKeller)",
+  "main": "dist/index.js",
+  "module": "dist/utils.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "tsdx watch --verbose --noClean",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint src",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "prepublishOnly": "yarn run build && yarn run size",
+    "pre-commit": "tsdx test --onlyChanged",
+    "pre-push": "yarn run prepublishOnly"
+  },
+  "dependencies": {
+    "@rckeller/example-sdk": "*",
+    "tslib": "^2.0.0"
+  }
+}

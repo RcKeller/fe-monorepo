@@ -1,0 +1,16 @@
+{
+  "name": "@rckeller/example-storybook",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start:storybook": "start-storybook -p 6006 --quiet",
+    "build:storybook": "build-storybook -o ./dist --quiet"
+  },
+  "dependencies": {
+    "@rckeller/example-react-lib": "*",
+    "@rckeller/example-script": "*",
+    "@rckeller/example-sdk": "*"
+  },
+  "devDependencies": {}
+}

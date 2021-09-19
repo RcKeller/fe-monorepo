@@ -1,0 +1,45 @@
+{
+  "name": "@rckeller/fe-monorepo",
+  "private": true,
+  "license": "MIT",
+  "version": "1.0.0",
+  "author": "Ryan Keller <rykeller.tech@gmail.com> (https://github.com/RcKeller)",
+  "engines": {
+    "node": "^=14"
+  },
+  "workspaces": [
+    "packages/*",
+    "app",
+    "storybook"
+  ],
+  "scripts": {
+    "lerna": "lerna",
+    "start": "lerna run start --stream --parallel",
+    "test": "lerna run test --",
+    "lint": "lerna run lint -- --fix",
+    "build": "lerna run build",
+    "start:app": "yarn run build && yarn --cwd example && yarn --cwd example start",
+    "cypress": "cypress run",
+    "cypress:open": "cypress open"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run --stream --no-bail --since HEAD --exclude-dependents pre-commit",
+      "pre-push": "lerna run --stream pre-push"
+    }
+  },
+  "dependencies": {
+    "cypress": "^8.4.1",
+    "lerna": "4",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "size-limit": "^5.0.3",
+    "tsdx": "^0.14.1",
+    "typescript": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.173"
+  }
+}
