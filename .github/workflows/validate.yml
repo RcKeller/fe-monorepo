@@ -13,12 +13,12 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
-    # - name: Cache Dependencies
-    #   uses: actions/cache@main
-    #   id: cache-build
-    #   with:
-    #     path: '**/node_modules'
-    #     key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+    - name: Cache Dependencies
+      uses: actions/cache@main
+      id: cache-build
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
     - name: Install Dependencies
       run: yarn install

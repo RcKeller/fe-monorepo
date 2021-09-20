@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Example script to be included in document heads",
   "author": "Ryan Keller <rykeller.tech@gmail.com> (https://github.com/RcKeller)",
-  "main": "dist/index.js",
+  "main": "dist/example-script.umd.production.min.js",
   "typings": "dist/index.d.ts",
   "files": [
     "README.md",
@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "start": "tsdx watch --format umd --verbose --noClean",
-    "build": "tsdx build  --format umd ",
+    "build": "tsdx build --format umd ",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint src",
     "size": "size-limit",

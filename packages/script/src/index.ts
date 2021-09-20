@@ -2,7 +2,8 @@
 
 function init () {
   if (typeof window !== 'undefined') return undefined;
-  global.window.dataLayer = [];
+  console.warn('@rckeller/example-script: initialize')
+  // global.window.dataLayer = [];
 }
 
 export default { init }
