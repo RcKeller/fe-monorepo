@@ -5,10 +5,10 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { Button } from '@rckeller/example-react-lib';
 import { DemoRoute } from './routes/Demo';
 
 import './index.css'
+import '@rckeller/example-script'; // IIFE - automatically initializes
 
 const App = () => {
   return (

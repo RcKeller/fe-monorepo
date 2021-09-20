@@ -1,9 +1,15 @@
 /// <reference types="@rckeller/example-sdk" />
 
-function init () {
-  if (typeof window !== 'undefined') return undefined;
-  console.warn('@rckeller/example-script: initialize')
-  // global.window.dataLayer = [];
-}
+const dataLayer = []
+window.dataLayer = new Proxy(dataLayer, {
+  set: function(target, property, value) {
+    if (typeof value === 'object') {
+      console.log('dataLayer: new event saved', value);
+    }
+    target[property] = value;
+    // you have to return true to accept the changes
+    return true;
+  }
+});
 
-export default { init }
+console.warn('@rckeller/example-script: mock analytics initialized')
