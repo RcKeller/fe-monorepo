@@ -23,3 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// -- This is a parent command --
+Cypress.Commands.add('shouldHaveAnalytics', (index: number, event: any) => {
+  Cypress.log({
+    displayName: 'shouldHaveAnalytics',
+    message: `checking dataLayer[${index}]`,
+    consoleProps: () => ({
+      index, event
+    })
+  })
+
+  cy.window({ log: false })
+    .its('dataLayer', { log: false })
+    .its(index, { log: false })
+    .should('contain', event)
+})

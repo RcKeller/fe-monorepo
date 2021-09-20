@@ -21,14 +21,16 @@ describe('Demo App', () => {
   })
 
   it('should save analytics events when our example button is clicked', () => {
-    cy.window().its('dataLayer').its('0')
-    .should('equal', [{
-      action: "demo-impression",
-      category: "impression"
-    }])
-    cy.get('button')
-      .click()
-      .wait(100)
-    cy.window().its('dataLayer').its('1').should('contain', [{category: 'click', action: 'demo-click'}])
+    cy.shouldHaveAnalytics(0, {
+      category: "impression",
+      action: "demo-impression"
+    })
+
+    cy.get('button').click()
+    
+    cy.shouldHaveAnalytics(1, {
+      category: 'click',
+      action: 'demo-click'
+    })
   })
 })
